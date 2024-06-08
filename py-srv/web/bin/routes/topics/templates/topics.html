@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    {% include 'header.html' %}
+</head>
+<body>
+  {% include 'nav-menu.html' %}
+  <center>
+     <div style="font-size: 18;">
+        Topics: 
+        <select id="search">
+            <option value=""><----></option>
+            {% for k,v in aggregation['topics'].items() %}
+                <option value="{{k}}">{{k}}.....{{v['value']}}</option>
+            {% endfor %}
+        </select>
+    </div>
+</center>
+    {% include 'component/main.html' %}
+  <script type="text/javascript">
+    $(document).ready( function () {
+        $("#pageTurner").change(function(){
+            let x = $(this).val();
+            let y = $("#search").val();
+            if(y != '')
+                location.href = "https://localhost/topics/" + x + '/' + y;
+        });
+        $("#search").change(function(){
+            let x = $(this).val();
+            if(x != '')
+                location.href = "https://localhost/topics/" + x;
+        });
+    });
+</script>
+</<body>

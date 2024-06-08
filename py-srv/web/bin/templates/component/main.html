@@ -1,0 +1,21 @@
+{% include 'component/stats.html'%}
+{% for resp in response %}
+<div class="grid-container">
+    <div class="item1 name-box">
+        <b>Name: </b> 
+        <span style="font-size: large; font-style: italic; color: blue;">{{resp.name}} </span>
+    </div>
+    <div class="item2 filter">
+        {% include 'component/filter.html' %}
+    </div>
+    <div class="item3 description">
+        <b>Description: </b> {{resp.desc}} 
+    </div>
+    <div class="item4 topic">
+        {% include 'component/topic.html' %}
+    </div>
+    <div class="item5 catagory">
+        {% include 'component/catagory.html' %}
+    </div>
+</div>
+{% endfor%}

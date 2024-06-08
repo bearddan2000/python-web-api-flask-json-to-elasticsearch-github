@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    {% include 'header.html' %}
+</head>
+<body>
+  {% include 'nav-menu.html' %}
+  <center>
+    <div class="stats-grid-container">
+        <div style="font-size: 18;" class="item1">
+            Catagory: 
+            <select id="catagory-search">
+                <option value=""><----></option>
+                {% for x in aggregation['catagory'] %}
+                    <option value="{{x}}">{{x}}.....{{x['value']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div style="font-size: 18;" class="item3">
+            SubCatagory: 
+            <select id="subcatagory-search">
+                <option value=""><----></option>
+                {% for x in aggregation['subcatagory'] %}
+                    <option value="{{x}}">{{x}}.....{{x['value']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</center>
+{% include 'component/main.html' %}
+  <script type="text/javascript">
+    $(document).ready( function () {
+        $("#pageTurner").change(function(){
+            let x = $(this).val();
+            location.href = "https://localhost/" + x;
+        });
+    });
+    $("#subcatagory-search").change(function(){
+        /*
+        let x = $(this).val();
+        if(x != '')
+            location.href = "https://localhost/topics/" + x;
+        */
+       // TODO add endpoint https://localhost/catagory/<catagory>/sub/<subcatagory>
+    });
+</script>
+</<body>

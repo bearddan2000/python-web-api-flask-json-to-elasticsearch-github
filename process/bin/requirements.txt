@@ -1,0 +1,5 @@
+requests
+
+# deps for pytest
+pytest
+allure-pytest

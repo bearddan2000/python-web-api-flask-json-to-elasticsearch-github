@@ -1,0 +1,93 @@
+<h2>Build</h2>
+<ul class="nav nav-pills nav-fill">
+    {% for k, v in aggregation['build'].items() %}
+        <li class="nav-item" style="border: 2px black solid">
+
+                <!-- sets color sploch -->
+                <span class="color-id" style="background-color: {{v['color']}};"></span>
+                <!-- sets name -->
+                <a href="/filter/build/{{k}}">{{k}}</a>
+                <!-- sets count -->
+                <span>{{v['value']}}</span>
+
+        </li>
+    {% endfor%}
+</ul>
+<h2>Language</h2>
+<ul class="nav nav-pills nav-fill">
+    {% for k, v in aggregation['language'].items() %}
+        <li class="nav-item" style="border: 2px black solid">
+            <a href="#{{k}}-language" class="nav-link" data-bs-toggle="tab">
+                <!-- sets color sploch -->
+                <span class="color-id" style="background-color: {{v['color']}};"></span>
+                <!-- sets name -->
+                <span>{{k}}</span>
+                <!-- sets count -->
+                <span>{{v['value']}}</span>
+            </a>
+        </li>
+    {% endfor%}
+</ul>
+<h2>Platform</h2>
+<ul class="nav nav-pills nav-fill">
+    {% for k, v in aggregation['platform'].items() %}
+        <li class="nav-item" style="border: 2px black solid">
+
+                <!-- sets color sploch -->
+                <span class="color-id" style="background-color: {{v['color']}};"></span>
+                <!-- sets name -->
+                <a href="/filter/platform/{{k}}">{{k}}</a>
+                <!-- sets count -->
+                <span>{{v['value']}}</span>
+            
+        </li>
+    {% endfor%}
+</ul>
+<h2>Tech</h2>
+<ul class="nav nav-pills nav-fill">
+    {% for k, v in aggregation['tech'].items() %}
+        <li class="nav-item" style="border: 2px black solid">
+            
+                <!-- sets color sploch -->
+                <span class="color-id" style="background-color: {{v['color']}};"></span>
+                <!-- sets name -->
+                <a href="/filter/tech/{{k}}">{{k}}</a>
+                <!-- sets count -->
+                <span>{{v['value']}}</span>
+            
+        </li>
+    {% endfor%}
+</ul>
+<div class="tab-content">
+    {% for x, y in aggregation['language'].items() %}
+        <div class="tab-pane fade" id="{{x}}-language">
+            <h2>{{x}} tab content ...</h2>
+            <div class="stats-grid-container">
+                <div class="item1">Build</div>
+                <div class="item3">
+                    {% for k, v in y['build'].items() %}
+                        <!-- sets color sploch -->
+                        <span class="color-id" style="background-color: {{v['color']}};"></span>
+                        <!-- sets name -->
+                        <a href="/filter/language/{{x}}/build/{{k}}">{{k}}</a>
+                        <!-- sets count -->
+                        <span>{{v['value']}}</span>
+                    {% endfor%}
+                </div>
+            </div>
+            <div class="stats-grid-container">
+                <div class="item1">Platform</div>
+                <div class="item3">
+                    {% for k, v in y['platform'].items() %}
+                        <!-- sets color sploch -->
+                        <span class="color-id" style="background-color: {{v['color']}};"></span>
+                        <!-- sets name -->
+                        <a href="/filter/language/{{x}}/platform/{{k}}">{{k}}</a>
+                        <!-- sets count -->
+                        <span>{{v['value']}}</span>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+    {% endfor%}
+</div>

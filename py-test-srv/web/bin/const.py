@@ -1,0 +1,11 @@
+URL = 'https://py-web-srv:443'
+
+TOPIC_URL_WEB = '/topics'
+
+GET_ALL_URL_WEB = ''
+
+GET_ALL_BY_PAGE_URL_WEB = '/2'
+
+SEARCH_BY_TOPIC_URL_WEB = TOPIC_URL_WEB + '/java'
+
+SEARCH_BY_TOPIC_BY_PAGE_URL_WEB = TOPIC_URL_WEB + '/2/java'

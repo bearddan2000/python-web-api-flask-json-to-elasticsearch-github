@@ -1,0 +1,7 @@
+Flask
+
+# resource for calling api
+requests
+
+# resource for ssl
+pyopenssl

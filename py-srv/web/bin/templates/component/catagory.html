@@ -1,0 +1,9 @@
+<div><b>Catagories: </b></div>
+{% for item in resp.catagory %}
+    <div>
+        <b>Catagory: </b>
+        <span>{{item.catagory}}</span>
+        <b>Subcatagory: </b>
+        <span>{{item.subcatagory}}</span>
+    </div>                   
+{% endfor%}

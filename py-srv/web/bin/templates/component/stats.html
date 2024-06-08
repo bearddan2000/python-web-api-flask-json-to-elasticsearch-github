@@ -1,0 +1,18 @@
+<div class="stats-grid-container">
+    <div class="item1">
+        <b>Count: </b><span>{{count}}</span>
+    </div>
+
+    <div style="font-size: 18;" class="item2">
+        <b>Page: </b><span>{{page}} of {{maxPage}}</span>
+    </div>
+
+    <div style="font-size: 18;" class="item3">
+        <select id="pageTurner">
+            <option value=""><----></option>
+            {% for x in range(maxPage) %}
+                <option value="{{x+1}}/{{search_term}}">Page: {{x+1}}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

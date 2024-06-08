@@ -1,0 +1,12 @@
+Flask
+
+# resource for basic auth
+Flask-httpauth
+
+# resource for ssl
+pyopenssl
+
+# resources for db
+redis
+elasticsearch
+elasticsearch-dsl

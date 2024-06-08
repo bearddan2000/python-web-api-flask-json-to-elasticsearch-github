@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    {% include 'header.html' %}
+</head>
+<body>
+  {% include 'nav-menu.html' %}
+  
+  <center>
+    <div class="stats-grid-container">
+        <div style="font-size: 18;" class="item1">
+            Build: 
+            <select id="build-search">
+                <option value=""><----></option>
+                {% for k,v in aggregation['build'].items() %}
+                    <option value="{{k}}">{{k}}.....{{v['value']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div style="font-size: 18;" class="item3">
+            Language: 
+            <select id="language-search">
+                <option value=""><----></option>
+                {% for k,v in aggregation['language'].items() %}
+                    <option value="{{k}}">{{k}}.....{{v['value']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="stats-grid-container">
+        <div style="font-size: 18;" class="item1">
+            Platform: 
+            <select id="platform-search">
+                <option value=""><----></option>
+                {% for k,v in aggregation['platform'].items() %}
+                    <option value="{{k}}">{{k}}.....{{v['value']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div style="font-size: 18;" class="item3">
+            Tech: 
+            <select id="tech-search">
+                <option value=""><----></option>
+                {% for k,v in aggregation['tech'].items() %}
+                    <option value="{{k}}">{{k}}.....{{v['value']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</center>
+    {% include 'component/main.html' %}
+  <script type="text/javascript">
+    $(document).ready( function () {
+        $("#pageTurner").change(function(){
+            let x = $(this).val();
+            location.href = "https://localhost/filter/" + x;
+        });
+        $("#build-search").change(function(){
+            let x = $(this).val();
+            location.href = "https://localhost/filter/build/" + x;
+        });
+        $("#language-search").change(function(){
+            let x = $(this).val();
+            location.href = "https://localhost/filter/language/" + x;
+        });
+        $("#platform-search").change(function(){
+            let x = $(this).val();
+            location.href = "https://localhost/filter/platform/" + x;
+        });
+        $("#tech-search").change(function(){
+            let x = $(this).val();
+            location.href = "https://localhost/filter/tech/" + x;
+        });
+    });
+</script>
+</<body>
